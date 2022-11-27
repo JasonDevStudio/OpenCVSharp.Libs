@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>36e9c833-ce33-487e-823b-c2f704a8344e</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>HiOpenCVLibs.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\AddIn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\GlobalUsing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\GlobaService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OpenCVHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\RectangleShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CircleShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\Shape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\IShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PointEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\ShapeTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SizeEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Common\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Shapes\Basic\" />
+  </ItemGroup>
+</Project>
