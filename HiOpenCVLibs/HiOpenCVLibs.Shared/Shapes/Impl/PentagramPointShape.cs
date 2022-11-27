@@ -19,7 +19,7 @@ public class PentagramPointShape : PointShape
     {
         this.Center = new Point(point.X, point.Y);
         this.Thickness = -1;
-        this.IsFilled = this.Thickness == -1;
+        this.IsFill = this.Thickness == -1;
         this.Radius = (int)size.Width;
         var r0 = this.Radius;
         var p0 = this.Center;
@@ -39,9 +39,9 @@ public class PentagramPointShape : PointShape
             new Point((int)p0.X+r1*Math.Cos(Math.PI*19/10), (int)p0.Y-r1*Math.Sin(Math.PI*19/10))
         };
 
-        if (this.IsFilled)
-            OpenCVHelper.Default.DrawFillPoly(src, this.Points, this.RgbColor, this.LineType, this.Shift, this.Offset);
+        if (this.IsFill)
+            OpenCVHelper.Default.DrawFillPoly(src, this.Points, this.FillColor, this.LineType, this.Shift, this.Offset);
         else
-            OpenCVHelper.Default.DrawPolylines(src, new List<IEnumerable<Point>> { this.Points }, this.IsClosed, this.RgbColor, this.Thickness, this.LineType);
+            OpenCVHelper.Default.DrawPolylines(src, new List<IEnumerable<Point>> { this.Points }, this.IsClosed, this.FillColor, this.Thickness, this.LineType);
     }
 }

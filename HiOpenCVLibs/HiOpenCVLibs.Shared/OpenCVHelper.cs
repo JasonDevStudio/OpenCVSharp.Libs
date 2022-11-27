@@ -78,6 +78,18 @@ public class OpenCVHelper
     public void DrawPolylines(Mat src, IEnumerable<IEnumerable<Point>> pts, bool isClosed, Scalar color, int thickness = 1, LineTypes lineType = LineTypes.AntiAlias, int shift = 0) => Cv2.Polylines(src, pts, isClosed, color, thickness, lineType, shift);
 
     /// <summary>
+    /// Draws the polylines. 未填充
+    /// </summary>
+    /// <param name="src">The source.操作图像</param>
+    /// <param name="pts">The PTS.多边形点集合，包含几个矩阵，就绘制几个多边形</param>
+    /// <param name="isClosed">if set to <c>true</c> [is closed]. 是否闭合，如为False，您将获得连接所有点的折线，而不是闭合形状</param>
+    /// <param name="color">The color.填充颜色</param>
+    /// <param name="thickness">The thickness.边框粗细</param>
+    /// <param name="lineType">Type of the line.边框类型</param>
+    /// <param name="shift">The shift.</param>
+    public void DrawPolylines(Mat src, IEnumerable<Point> pts, bool isClosed, Scalar color, int thickness = 1, LineTypes lineType = LineTypes.AntiAlias, int shift = 0) => Cv2.Polylines(src, new List<IEnumerable<Point>> { pts }, isClosed, color, thickness, lineType, shift);
+
+    /// <summary>
     /// Draws the fill poly. 绘制填充的多边形
     /// </summary>
     /// <param name="src">The source.操作图像</param>

@@ -83,7 +83,15 @@ public abstract class PointShape : IPointShape
     /// <value>
     /// The color of the RGB.
     /// </value>
-    public Scalar RgbColor { get; set; } = Scalar.Red;
+    public Scalar FillColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the color of the border. 边框颜色
+    /// </summary>
+    /// <value>
+    /// The color of the border.
+    /// </value>
+    public Scalar BorderColor { get; set; } = new Scalar(255, 255, 255, 30);
 
     /// <summary>
     /// Gets or sets the type of the line.边框类型 
@@ -116,7 +124,7 @@ public abstract class PointShape : IPointShape
     /// <value>
     ///   <c>true</c> if this instance is filled; otherwise, <c>false</c>.
     /// </value>
-    public bool IsFilled { get; set; }
+    public bool IsFill { get; set; } = true;
 
     /// <summary>
     /// Gets or sets the shift.缩放参数 中心坐标和轴值中的小数位数
@@ -124,7 +132,7 @@ public abstract class PointShape : IPointShape
     /// <value>
     /// The shift.
     /// </value>
-    public int Shift { get; set; } = 1;
+    public int Shift { get; set; } = 0;
 
     /// <summary>
     /// Gets or sets the offset.偏移
@@ -132,7 +140,7 @@ public abstract class PointShape : IPointShape
     /// <value>
     /// The offset.
     /// </value>
-    public Point Offset { get; set; }
+    public Point Offset { get; set; } = new Point(0, 0);
 
     /// <summary>
     /// Draws the specified src.

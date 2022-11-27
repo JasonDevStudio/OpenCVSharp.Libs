@@ -2,9 +2,9 @@
 
 namespace HiOpenCVLibs.Shapes;
 
-public class RectanglePointShape : PointShape
+public class RectangleShape : PointShape
 {
-    public RectanglePointShape()
+    public RectangleShape()
     {
         this.Name = nameof(ShapeTypes.Rectangle);
         this.ShapeType = ShapeTypes.Rectangle;
@@ -17,14 +17,18 @@ public class RectanglePointShape : PointShape
     /// <param name="size">The size.</param>
     public override void Draw(Mat src, PointEx point, SizeEx size)
     {
-        base.Center = new Point(point.X, point.Y);
-        this.IsFilled = this.Thickness == -1;
+        base.Center = new Point(point.X, point.Y); 
         var rect = new RotatedRect(this.Center, new Size2f(size.Width, size.Height), (float)this.Angle);
         this.Points = rect.Points().Select(p => new Point(p.X, p.Y)).ToList();
 
-        if (this.IsFilled)
-            OpenCVHelper.Default.DrawFillPoly(src, this.Points, this.RgbColor, this.LineType, this.Shift, this.Offset);
+        if (this.IsFill)
+        {
+            OpenCVHelper.Default.DrawFillPoly(src, this.Points, this.FillColor, this.LineType, this.Shift, this.Offset);
+            OpenCVHelper.Default.DrawPolylines(src, this.Points, this.IsClosed, this.BorderColor, this.Thickness, this.LineType);
+        }
         else
-            OpenCVHelper.Default.DrawPolylines(src, new List<IEnumerable<Point>> { this.Points }, this.IsClosed, this.RgbColor, this.Thickness, this.LineType);
+        {
+            OpenCVHelper.Default.DrawPolylines(src, this.Points, this.IsClosed, this.FillColor, this.Thickness, this.LineType);
+        }
     }
 }

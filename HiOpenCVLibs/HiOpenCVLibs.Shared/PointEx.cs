@@ -12,10 +12,18 @@ public struct PointEx
     /// </summary>
     /// <param name="x">The x.</param>
     /// <param name="y">The y.</param>
-    public PointEx(double x, double y) 
+    /// <param name="shapeType">Type of the shape.</param>
+    /// <param name="color">The color.</param>
+    public PointEx(double x, double y, ShapeTypes shapeType, Scalar? color = null)
     {
-        this.X= x; 
+        this.X = x;
         this.Y = y;
+        this.ShapeType = shapeType;
+        this.Color = color;
+        this.Shape = GlobaService.GetService<IPointShape>(ShapeType);
+
+        if (color != null)
+            this.Shape.FillColor = this.Color.Value;
     }
 
     /// <summary>
@@ -35,6 +43,14 @@ public struct PointEx
     public double Y { get; set; }
 
     /// <summary>
+    /// Gets or sets the value.
+    /// </summary>
+    /// <value>
+    /// The value.
+    /// </value>
+    public object Value { get; set; }
+
+    /// <summary>
     /// Gets or sets the type of the shape.
     /// </summary>
     /// <value>
@@ -43,11 +59,19 @@ public struct PointEx
     public ShapeTypes ShapeType { get; set; }
 
     /// <summary>
+    /// Gets or sets the color.
+    /// </summary>
+    /// <value>
+    /// The color.
+    /// </value>
+    public Scalar? Color { get; set; }
+     
+    /// <summary>
     /// Gets or sets the shape.
     /// </summary>
     /// <value>
     /// The shape.
     /// </value>
     [JsonIgnore]
-    public IPointShape Shape => GlobaService.GetService<IPointShape>(ShapeType);
+    public IPointShape Shape { get; set; }
 }

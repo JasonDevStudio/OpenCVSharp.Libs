@@ -83,7 +83,15 @@ public interface IPointShape
     /// <value>
     /// The color of the RGB.
     /// </value>
-    Scalar RgbColor { get; set; }
+    Scalar FillColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the color of the border. 边框颜色
+    /// </summary>
+    /// <value>
+    /// The color of the border.
+    /// </value>
+    Scalar BorderColor { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the line.边框类型 
@@ -116,7 +124,7 @@ public interface IPointShape
     /// <value>
     ///   <c>true</c> if this instance is filled; otherwise, <c>false</c>.
     /// </value>
-    bool IsFilled { get; set; }
+    bool IsFill { get; set; }
 
     /// <summary>
     /// Gets or sets the shift.缩放参数 中心坐标和轴值中的小数位数
