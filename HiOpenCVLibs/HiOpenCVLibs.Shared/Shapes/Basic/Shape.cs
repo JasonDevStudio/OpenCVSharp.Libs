@@ -83,7 +83,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The color of the RGB.
     /// </value>
-    public Scalar RgbColor { get; set; }
+    public Scalar RgbColor { get; set; } = Scalar.Red;
 
     /// <summary>
     /// Gets or sets the type of the line.边框类型 

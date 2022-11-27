@@ -8,12 +8,23 @@ namespace HiOpenCVLibs;
 public struct PointEx
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="PointEx"/> struct.
+    /// </summary>
+    /// <param name="x">The x.</param>
+    /// <param name="y">The y.</param>
+    public PointEx(double x, double y) 
+    {
+        this.X= x; 
+        this.Y = y;
+    }
+
+    /// <summary>
     /// Gets or sets the x.
     /// </summary>
     /// <value>
     /// The x.
     /// </value>
-    public int X { get; set; }
+    public double X { get; set; }
 
     /// <summary>
     /// Gets or sets the y.
@@ -21,7 +32,7 @@ public struct PointEx
     /// <value>
     /// The y.
     /// </value>
-    public int Y { get; set; }
+    public double Y { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the shape.

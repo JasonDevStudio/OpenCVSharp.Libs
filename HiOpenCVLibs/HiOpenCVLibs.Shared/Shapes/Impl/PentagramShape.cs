@@ -18,6 +18,7 @@ public class PentagramShape : Shape
     public override void Draw(Mat src, PointEx point, SizeEx size)
     {
         this.Center = new Point(point.X, point.Y);
+        this.Thickness = -1;
         this.IsFilled = this.Thickness == -1;
         this.Radius = (int)size.Width;
         var r0 = this.Radius;

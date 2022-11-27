@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HiOpenCVLibs;
 using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
 
@@ -13,6 +15,10 @@ namespace WpfApp1.ViewModels
     public class MainViewModel : ObservableObject
     {
         private BitmapSource source;
+        private string center = "600,600";
+        private string size = "300,300";
+        private int shapeType = 2;
+        private int count = 1;
 
         /// <summary>
         /// Gets or sets the draw command.
@@ -21,6 +27,30 @@ namespace WpfApp1.ViewModels
         /// The draw command.
         /// </value>
         public ICommand DrawCmd => new AsyncRelayCommand(DrawAsync);
+
+        public string Center
+        {
+            get => this.center;
+            set => this.SetProperty(ref this.center, value);
+        }
+
+        public string Size
+        {
+            get => this.size;
+            set => SetProperty(ref this.size, value);
+        }
+
+        public int ShapeType
+        {
+            get => this.shapeType;
+            set => SetProperty(ref this.shapeType, value);
+        }
+
+        public int Count
+        {
+            get => this.count;
+            set => this.SetProperty(ref this.count, value);
+        }
 
         /// <summary>
         /// Gets or sets the source.
@@ -39,6 +69,55 @@ namespace WpfApp1.ViewModels
         /// </summary>
         /// <returns></returns>
         public async Task DrawAsync()
+        {
+            var st = Stopwatch.StartNew();
+            var mat = await Task.Factory.StartNew(() =>
+            {
+                var st1 = Stopwatch.StartNew();
+                var count = 0;
+                var scalar = new Scalar(255, 69, 0);
+                var src = new Mat(new Size(7680, 4320), MatType.CV_8UC3);
+                var carry = this.Center.Split(',');
+                var cpoint = new PointEx(Convert.ToInt32(carry[0]), Convert.ToInt32(carry[1])) { ShapeType = ShapeTypes.Pentagram };
+                var sarry = this.Size.Split(",");
+                var size = new SizeEx(Convert.ToInt32(sarry[0]), Convert.ToInt32(sarry[1]));
+
+                switch (this.ShapeType)
+                {
+                    case 4:
+                        cpoint.ShapeType = ShapeTypes.Rectangle;
+                        break;
+                    case 6:
+                        cpoint.ShapeType = ShapeTypes.Pentagram;
+                        break;
+                    case 2:
+                    default:
+                        cpoint.ShapeType = ShapeTypes.Circle;
+                        break;
+                }
+
+
+                for (int i = 0; i < this.count; i++)
+                {
+                    cpoint.Shape.Draw(src, cpoint, size);
+                }
+
+
+                st1.Stop();
+                Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5);
+
+                return src;
+            });
+            this.Source = mat.ToWriteableBitmap();
+            st.Stop();
+            System.Windows.MessageBox.Show($"times [{st.Elapsed.TotalMilliseconds}] ms.");
+        }
+
+        /// <summary>
+        /// Draws the asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public async Task Draw1Async()
         {
             var st = Stopwatch.StartNew();
             var mat = await Task.Factory.StartNew(() =>
@@ -69,7 +148,7 @@ namespace WpfApp1.ViewModels
             st.Stop();
             System.Windows.MessageBox.Show($"times [{st.Elapsed.TotalMilliseconds}] ms.");
         }
-         
+
         /// <summary>
         /// Draws the asynchronous.
         /// </summary>

@@ -12,6 +12,10 @@
     </Window.DataContext>
     <StackPanel>
         <Button Content="Draw" Command="{Binding DrawCmd}" />
+        <TextBox Text="{Binding Center}"></TextBox>
+        <TextBox Text="{Binding Size}"></TextBox>
+        <TextBox Text="{Binding ShapeType}"></TextBox>
+        <TextBox Text="{Binding Count}"></TextBox>
         <Image Source="{Binding Source}"></Image>
     </StackPanel>
 </Window>

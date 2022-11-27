@@ -15,7 +15,7 @@ public class CircleShape : Shape
     /// <param name="size">The size.</param>
     public override void Draw(Mat src, PointEx point, SizeEx size)
     {
-        base.Center = new Point(point.X, point.Y);
+        this.Center = new Point(point.X, point.Y);
         this.Radius = Convert.ToInt32(size.Width);
         this.IsFilled = this.Thickness == -1;
         OpenCVHelper.Default.DrawCircle(src, this.Center, this.Radius, this.RgbColor, this.Thickness, this.LineType, this.Shift);
