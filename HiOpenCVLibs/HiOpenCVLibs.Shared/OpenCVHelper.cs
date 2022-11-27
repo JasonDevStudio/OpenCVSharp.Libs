@@ -29,14 +29,14 @@ public class OpenCVHelper
     /// Draws the line.
     /// </summary>
     /// <param name="src">The mat. 操作图像.</param>
-    /// <param name="leftTop">The left top.矩形左上角坐标</param>
-    /// <param name="rightBottom">The right bottom.矩形右下角坐标</param>
+    /// <param name="start">The left top.矩形左上角坐标</param>
+    /// <param name="end">The right bottom.矩形右下角坐标</param>
     /// <param name="color">The color.填充颜色</param>
     /// <param name="thickness">The thickness.边框粗细</param>
     /// <param name="lineType">Type of the line.边框类型</param>
     /// <param name="shift">The shift.缩放参数</param>
-    public void DrawLine(Mat src, Point leftTop, Point rightBottom, Scalar color, int thickness = 1,
-        LineTypes lineType = LineTypes.AntiAlias, int shift = 0) => Cv2.Line(src, leftTop, rightBottom, color, thickness, lineType, shift);
+    public void DrawLine(Mat src, Point start, Point end, Scalar color, int thickness = 1,
+        LineTypes lineType = LineTypes.AntiAlias, int shift = 0) => Cv2.Line(src, start, end, color, thickness, lineType, shift);
 
     /// <summary>
     /// Draws the circle.

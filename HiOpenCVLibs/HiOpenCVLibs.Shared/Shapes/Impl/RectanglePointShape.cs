@@ -2,9 +2,9 @@
 
 namespace HiOpenCVLibs.Shapes;
 
-public class RectangleShape : Shape
+public class RectanglePointShape : PointShape
 {
-    public RectangleShape()
+    public RectanglePointShape()
     {
         this.Name = nameof(ShapeTypes.Rectangle);
         this.ShapeType = ShapeTypes.Rectangle;

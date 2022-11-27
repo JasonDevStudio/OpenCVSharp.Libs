@@ -13,11 +13,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobalUsing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobaService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OpenCVHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\RectangleShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CircleShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\Shape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\IShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\RectanglePointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\PointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\IPointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PointEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\ShapeTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SizeEx.cs" />

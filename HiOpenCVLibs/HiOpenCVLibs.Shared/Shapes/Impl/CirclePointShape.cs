@@ -1,8 +1,8 @@
 ﻿namespace HiOpenCVLibs.Shapes;
 
-public class CircleShape : Shape
+public class CirclePointShape : PointShape
 {
-    public CircleShape()
+    public CirclePointShape()
     {
         this.Name = nameof(ShapeTypes.Circle);
         this.ShapeType = ShapeTypes.Circle;

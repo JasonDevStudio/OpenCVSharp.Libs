@@ -49,5 +49,5 @@ public struct PointEx
     /// The shape.
     /// </value>
     [JsonIgnore]
-    public IShape Shape => GlobaService.GetService<IShape>(ShapeType);
+    public IPointShape Shape => GlobaService.GetService<IPointShape>(ShapeType);
 }

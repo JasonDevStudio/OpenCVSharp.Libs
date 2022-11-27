@@ -2,9 +2,9 @@
 
 namespace HiOpenCVLibs.Shapes;
 
-public class PentagramShape : Shape
+public class PentagramPointShape : PointShape
 {
-    public PentagramShape()
+    public PentagramPointShape()
     {
         this.Name = nameof(ShapeTypes.Pentagram);
         this.ShapeType = ShapeTypes.Pentagram;

@@ -3,7 +3,7 @@
 /// <summary>
 /// Shape
 /// </summary>
-public abstract class Shape : IShape
+public interface IPointShape
 {
     /// <summary>
     /// Gets or sets the name.
@@ -11,7 +11,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The name.
     /// </value>
-    public string Name { get; set; }
+    string Name { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the shape.
@@ -19,7 +19,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The type of the shape.
     /// </value>
-    public ShapeTypes ShapeType { get; set; }
+    ShapeTypes ShapeType { get; set; }
 
     /// <summary>
     /// Gets or sets the points.The PTS.多边形点集合，包含几个矩阵，就绘制几个多边形
@@ -27,7 +27,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The points.
     /// </value>
-    public IEnumerable<Point> Points { get; set; } = new List<Point>();
+    IEnumerable<Point> Points { get; set; }
 
     /// <summary>
     /// Gets or sets the center. 圆形中心点
@@ -35,7 +35,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The center.
     /// </value>
-    public Point Center { get; set; }
+    Point Center { get; set; }
 
     /// <summary>
     /// Gets or sets the radius.圆半径
@@ -43,7 +43,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The radius.
     /// </value>
-    public int Radius { get; set; }
+    int Radius { get; set; }
 
     /// <summary>
     /// Gets or sets the axes.椭圆长轴和短轴长度为边界的矩形区域，椭圆就绘制在这个矩形区域
@@ -51,7 +51,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The axes.
     /// </value>
-    public SizeEx Axes { get; set; }
+    SizeEx Axes { get; set; }
 
     /// <summary>
     /// Gets or sets the angle.偏转的角度（逆时针旋转）
@@ -59,7 +59,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The angle.
     /// </value>
-    public double Angle { get; set; }
+    double Angle { get; set; }
 
     /// <summary>
     /// Gets or sets the start angle.圆弧起始角的角度（逆时针旋转）
@@ -67,7 +67,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The start angle.
     /// </value>
-    public double StartAngle { get; set; }
+    double StartAngle { get; set; }
 
     /// <summary>
     /// Gets or sets the end angle.圆弧终结角的角度（逆时针旋转）
@@ -75,7 +75,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The end angle.
     /// </value>
-    public double EndAngle { get; set; }
+    double EndAngle { get; set; }
 
     /// <summary>
     /// Gets or sets the color of the RGB. 填充颜色
@@ -83,7 +83,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The color of the RGB.
     /// </value>
-    public Scalar RgbColor { get; set; } = Scalar.Red;
+    Scalar RgbColor { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the line.边框类型 
@@ -91,7 +91,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The type of the line.
     /// </value>
-    public LineTypes LineType { get; set; } = LineTypes.AntiAlias;
+    LineTypes LineType { get; set; }
 
     /// <summary>
     /// Gets or sets the thickness. 线条粗细
@@ -99,7 +99,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The thickness.
     /// </value>
-    public int Thickness { get; set; } = 1;
+    int Thickness { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether this instance is closed.
@@ -108,7 +108,7 @@ public abstract class Shape : IShape
     /// <value>
     ///   <c>true</c> if this instance is closed; otherwise, <c>false</c>.
     /// </value>
-    public bool IsClosed { get; set; } = true;
+    bool IsClosed { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether this instance is filled. 是否填充
@@ -116,7 +116,7 @@ public abstract class Shape : IShape
     /// <value>
     ///   <c>true</c> if this instance is filled; otherwise, <c>false</c>.
     /// </value>
-    public bool IsFilled { get; set; }
+    bool IsFilled { get; set; }
 
     /// <summary>
     /// Gets or sets the shift.缩放参数 中心坐标和轴值中的小数位数
@@ -124,7 +124,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The shift.
     /// </value>
-    public int Shift { get; set; } = 1;
+    int Shift { get; set; }
 
     /// <summary>
     /// Gets or sets the offset.偏移
@@ -132,7 +132,7 @@ public abstract class Shape : IShape
     /// <value>
     /// The offset.
     /// </value>
-    public Point Offset { get; set; }
+    Point Offset { get; set; }
 
     /// <summary>
     /// Draws the specified src.
@@ -140,5 +140,5 @@ public abstract class Shape : IShape
     /// <param name="src">The src.</param>
     /// <param name="point">The point.</param>
     /// <param name="size">The size.</param>
-    public abstract void Draw(Mat src, PointEx point, SizeEx size);
+    void Draw(Mat src, PointEx point, SizeEx size);
 }

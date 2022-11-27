@@ -6,9 +6,9 @@ public class AddIn
 {
     public void RegsisterTypes()
     {
-        GlobaService.ContainerBuilder.RegisterType<CircleShape>().Keyed<IShape>(ShapeTypes.Circle).PropertiesAutowired();
-        GlobaService.ContainerBuilder.RegisterType<RectangleShape>().Keyed<IShape>(ShapeTypes.Rectangle).PropertiesAutowired();
-        GlobaService.ContainerBuilder.RegisterType<PentagramShape>().Keyed<IShape>(ShapeTypes.Pentagram).PropertiesAutowired();
+        GlobaService.ContainerBuilder.RegisterType<CirclePointShape>().Keyed<IPointShape>(ShapeTypes.Circle).PropertiesAutowired();
+        GlobaService.ContainerBuilder.RegisterType<RectanglePointShape>().Keyed<IPointShape>(ShapeTypes.Rectangle).PropertiesAutowired();
+        GlobaService.ContainerBuilder.RegisterType<PentagramPointShape>().Keyed<IPointShape>(ShapeTypes.Pentagram).PropertiesAutowired();
 
         GlobaService.Container = GlobaService.ContainerBuilder.Build();
     }
