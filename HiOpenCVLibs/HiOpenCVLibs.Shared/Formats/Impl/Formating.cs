@@ -1,6 +1,6 @@
 ﻿namespace HiOpenCVLibs.Series;
 
-public interface IFormating
+public abstract class Formating : IFormating
 {
     /// <summary>
     /// Gets or sets the name.
@@ -8,7 +8,7 @@ public interface IFormating
     /// <value>
     /// The name.
     /// </value>
-    string Name { get; set; }
+    public string Name { get; set; }
 
     /// <summary>
     /// Gets or sets the tag.
@@ -16,7 +16,15 @@ public interface IFormating
     /// <value>
     /// The tag.
     /// </value>
-    string Tag { get; set; }
+    public string Tag { get; set; }
+
+    /// <summary>
+    /// Gets or sets the arguments.
+    /// </summary>
+    /// <value>
+    /// The arguments.
+    /// </value>
+    public IFormatArgs Args { get; set; }
 
     /// <summary>
     /// Formats the specified source.
@@ -24,5 +32,5 @@ public interface IFormating
     /// <param name="source">The source.</param>
     /// <param name="format">The format.</param>
     /// <returns></returns>
-    object Format(object source, string format = null);
+    public abstract object Format(object source, string format = null);
 }

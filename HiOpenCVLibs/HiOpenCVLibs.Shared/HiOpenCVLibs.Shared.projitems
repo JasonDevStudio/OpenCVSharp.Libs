@@ -15,7 +15,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)OpenCVHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeriesData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Common\ChartType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Common\IFormating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Impl\Font.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Interfaces\IFont.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Impl\FormatArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Impl\Formating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Interfaces\IFormatArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Interfaces\IFormating.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\Axis.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\XYSeries.cs" />
@@ -38,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Common\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Formats\Interfaces\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Formats\Impl\" />
     <Folder Include="$(MSBuildThisFileDirectory)Series\Basic\" />
     <Folder Include="$(MSBuildThisFileDirectory)Shapes\Basic\" />
   </ItemGroup>

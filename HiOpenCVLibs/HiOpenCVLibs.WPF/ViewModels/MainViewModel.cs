@@ -123,7 +123,7 @@ namespace WpfApp1.ViewModels
                 await series.DrawAsync(src);
 
                 st1.Stop();
-                // Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5);
+                 Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5);
 
                 return src;
             });
