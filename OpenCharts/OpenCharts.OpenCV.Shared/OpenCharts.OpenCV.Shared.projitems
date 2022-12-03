@@ -11,20 +11,10 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)OpenCVHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Common\ChartType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\Axis.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\Scale.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\XYSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\SeriesCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\SeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\Series.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\IScale.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\IXYSeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\ISeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\ISeriesCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\ISeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\IAxis.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\OpenCVPointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />

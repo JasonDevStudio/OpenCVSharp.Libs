@@ -9,9 +9,12 @@
     <Import_RootNamespace>OpenCharts</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Charts\Series.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Charts\XYSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\AddIn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobalUsing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobaService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ChartType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ShapeTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Formats\Font.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Formats\FormatArgs.cs" />
@@ -19,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\PointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenSize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenScale.cs" />
     <Compile Include="..\OpenCharts.Shared\Structs\OpenColor.cs" />
   </ItemGroup>
 </Project>
