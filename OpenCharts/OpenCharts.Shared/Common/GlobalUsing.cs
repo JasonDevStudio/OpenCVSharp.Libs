@@ -5,5 +5,4 @@ global using System.Threading.Tasks;
 global using System.Text;
 global using Autofac;
 global using CommunityToolkit.Mvvm.ComponentModel;
-global using CommunityToolkit.Mvvm.Input;
-global using OpenCvSharp; 
+global using CommunityToolkit.Mvvm.Input;  

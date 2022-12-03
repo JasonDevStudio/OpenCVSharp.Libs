@@ -9,6 +9,7 @@ using CommunityToolkit.Mvvm.Input;
 using OpenCharts;
 using OpenCharts.Series.Charts;
 using OpenCvSharp;
+using OpenCvSharp.Text;
 using OpenCvSharp.WpfExtensions;
 
 namespace OpenCharts.ViewModels
@@ -123,8 +124,7 @@ namespace OpenCharts.ViewModels
                 await series.DrawAsync(src);
 
                 st1.Stop();
-                 Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5);
-
+                 Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5); 
                 return src;
             });
 

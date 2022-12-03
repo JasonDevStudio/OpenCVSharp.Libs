@@ -21,8 +21,12 @@ namespace OpenCharts.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static AddIn addIn;
+
         public MainWindow()
         {
+            addIn = new AddIn();
+            addIn.RegsisterTypes();
             this.InitializeComponent();
             this.DataContext = new MainViewModel();
         }

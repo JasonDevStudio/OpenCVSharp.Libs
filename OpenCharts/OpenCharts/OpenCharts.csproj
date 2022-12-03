@@ -6,12 +6,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <Import Project="..\OpenCharts.OpenCV.Shared\OpenCharts.OpenCV.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\OpenCharts.Interfaces.Shared\OpenCharts.Interfaces.Shared.projitems" Label="Shared" />
+
   <Import Project="..\OpenCharts.Shared\OpenCharts.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\OpenCharts.SkiaSharp.Shared\OpenCharts.SkiaSharp.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.5.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
 

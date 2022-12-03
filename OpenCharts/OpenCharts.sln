@@ -5,9 +5,15 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCharts", "OpenCharts\OpenCharts.csproj", "{3BF67703-A8FD-41DB-8BD4-2B73ACE0543F}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenCharts.Shared", "OpenCharts.Shared\OpenCharts.Shared.shproj", "{36E9C833-CE33-487E-823B-C2F704A8344E}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenCharts.OpenCV.Shared", "OpenCharts.OpenCV.Shared\OpenCharts.OpenCV.Shared.shproj", "{36E9C833-CE33-487E-823B-C2F704A8344E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCharts.WPF", "OpenCharts.WPF\OpenCharts.WPF.csproj", "{0B174B59-C73E-4070-A55A-5ACBFA93233F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenCharts.SkiaSharp.Shared", "OpenCharts.SkiaSharp.Shared\OpenCharts.SkiaSharp.Shared.shproj", "{A660FC7F-4E41-4191-9E63-CF16FD67B18D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenCharts.Interfaces.Shared", "OpenCharts.Interfaces.Shared\OpenCharts.Interfaces.Shared.shproj", "{A5C7024B-7CA6-4B9E-A3CE-BD86A56C49A0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenCharts.Shared", "OpenCharts.Shared\OpenCharts.Shared.shproj", "{8DFEC597-1740-49AC-B252-7BD72C908D9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,7 +37,13 @@ Global
 		SolutionGuid = {3299CACE-05B9-4121-8440-377343400C8C}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		OpenCharts.Shared\OpenCharts.Shared.projitems*{36e9c833-ce33-487e-823b-c2f704a8344e}*SharedItemsImports = 13
+		OpenCharts.OpenCV.Shared\OpenCharts.OpenCV.Shared.projitems*{36e9c833-ce33-487e-823b-c2f704a8344e}*SharedItemsImports = 13
+		OpenCharts.Interfaces.Shared\OpenCharts.Interfaces.Shared.projitems*{3bf67703-a8fd-41db-8bd4-2b73ace0543f}*SharedItemsImports = 5
+		OpenCharts.OpenCV.Shared\OpenCharts.OpenCV.Shared.projitems*{3bf67703-a8fd-41db-8bd4-2b73ace0543f}*SharedItemsImports = 5
 		OpenCharts.Shared\OpenCharts.Shared.projitems*{3bf67703-a8fd-41db-8bd4-2b73ace0543f}*SharedItemsImports = 5
+		OpenCharts.SkiaSharp.Shared\OpenCharts.SkiaSharp.Shared.projitems*{3bf67703-a8fd-41db-8bd4-2b73ace0543f}*SharedItemsImports = 5
+		OpenCharts.Shared\OpenCharts.Shared.projitems*{8dfec597-1740-49ac-b252-7bd72c908d9c}*SharedItemsImports = 13
+		OpenCharts.Interfaces.Shared\OpenCharts.Interfaces.Shared.projitems*{a5c7024b-7ca6-4b9e-a3ce-bd86a56c49a0}*SharedItemsImports = 13
+		OpenCharts.SkiaSharp.Shared\OpenCharts.SkiaSharp.Shared.projitems*{a660fc7f-4e41-4191-9e63-cf16fd67b18d}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

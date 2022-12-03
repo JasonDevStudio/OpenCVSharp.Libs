@@ -3,7 +3,7 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>36e9c833-ce33-487e-823b-c2f704a8344e</SharedGUID>
+    <SharedGUID>8dfec597-1740-49ac-b252-7bd72c908d9c</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>OpenCharts</Import_RootNamespace>
@@ -12,40 +12,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\AddIn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobalUsing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobaService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)OpenCVHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Common\ChartType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Formats\Impl\Font.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Formats\Interfaces\IFont.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Formats\Impl\FormatArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Formats\Impl\Formating.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Formats\Interfaces\IFormatArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Formats\Interfaces\IFormating.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\Axis.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\XYSeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\SeriesCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\SeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Impl\Series.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\IXYSeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\ISeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\ISeriesCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\ISeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Interfaces\IAxis.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\RectanglePointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\PointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\IPointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PointEx.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Basic\ShapeTypes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SizeEx.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Common\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Formats\Interfaces\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Formats\Impl\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Series\Basic\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Shapes\Basic\" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ShapeTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Font.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\FormatArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Formats\Formating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\PointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenSize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenPoint.cs" />
+    <Compile Include="..\OpenCharts.Shared\Structs\OpenColor.cs" />
   </ItemGroup>
 </Project>
