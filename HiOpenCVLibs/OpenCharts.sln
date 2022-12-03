@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiOpenCVLibs", "HiOpenCVLibs\HiOpenCVLibs.csproj", "{3BF67703-A8FD-41DB-8BD4-2B73ACE0543F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCharts", "HiOpenCVLibs\OpenCharts.csproj", "{3BF67703-A8FD-41DB-8BD4-2B73ACE0543F}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HiOpenCVLibs.Shared", "HiOpenCVLibs.Shared\HiOpenCVLibs.Shared.shproj", "{36E9C833-CE33-487E-823B-C2F704A8344E}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenCharts.Shared", "HiOpenCVLibs.Shared\OpenCharts.Shared.shproj", "{36E9C833-CE33-487E-823B-C2F704A8344E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiOpenCVLibs.WPF", "HiOpenCVLibs.WPF\HiOpenCVLibs.WPF.csproj", "{0B174B59-C73E-4070-A55A-5ACBFA93233F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCharts.WPF", "HiOpenCVLibs.WPF\OpenCharts.WPF.csproj", "{0B174B59-C73E-4070-A55A-5ACBFA93233F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
