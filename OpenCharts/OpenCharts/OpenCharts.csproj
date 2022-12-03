@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <Import Project="..\HiOpenCVLibs.Shared\HiOpenCVLibs.Shared.projitems" Label="Shared" />
+  <Import Project="..\OpenCharts.Shared\OpenCharts.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.5.0" />

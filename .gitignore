@@ -11,3 +11,8 @@
 /HiOpenCVLibs/HiOpenCVLibs.WPF/HiOpenCVLibs.WPF.csproj.user
 /HiOpenCVLibs/.vs/ProjectEvaluation
 /HiOpenCVLibs/.vs/OpenCharts/v17
+/OpenCharts/.vs
+/OpenCharts/OpenCharts/bin/Debug/net7.0
+/OpenCharts/OpenCharts/obj
+/OpenCharts/OpenCharts.WPF/bin/Debug/net7.0-windows
+/OpenCharts/OpenCharts.WPF/obj

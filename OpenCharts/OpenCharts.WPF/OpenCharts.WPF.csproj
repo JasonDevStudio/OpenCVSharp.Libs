@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HiOpenCVLibs\OpenCharts.csproj" />
+    <ProjectReference Include="..\OpenCharts\OpenCharts.csproj" />
   </ItemGroup>
 
 </Project>
