@@ -6,7 +6,7 @@
     <SharedGUID>36e9c833-ce33-487e-823b-c2f704a8344e</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>HiOpenCVLibs.Shared</Import_RootNamespace>
+    <Import_RootNamespace>OpenCharts</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Common\AddIn.cs" />

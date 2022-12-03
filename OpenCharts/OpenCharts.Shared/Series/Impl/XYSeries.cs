@@ -1,4 +1,4 @@
-﻿namespace HiOpenCVLibs.Series;
+﻿namespace OpenCharts.Series;
 
 public class XYSeries : Series, IXYSeries
 {

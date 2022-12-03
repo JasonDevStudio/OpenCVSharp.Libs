@@ -1,6 +1,6 @@
-﻿using HiOpenCVLibs.Shapes;
+﻿using OpenCharts.Shapes;
 
-namespace HiOpenCVLibs;
+namespace OpenCharts;
 
 public class AddIn
 {

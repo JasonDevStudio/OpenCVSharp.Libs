@@ -1,4 +1,4 @@
-﻿namespace HiOpenCVLibs.Series;
+﻿namespace OpenCharts.Series;
 
 /// <summary>
 /// Series

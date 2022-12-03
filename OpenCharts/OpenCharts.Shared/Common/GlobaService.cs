@@ -2,7 +2,7 @@
 using Autofac;
 using Autofac.Core;
 
-namespace HiOpenCVLibs;
+namespace OpenCharts;
 
 public static class GlobaService
 {

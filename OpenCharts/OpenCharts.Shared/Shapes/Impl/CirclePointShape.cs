@@ -1,4 +1,4 @@
-﻿namespace HiOpenCVLibs.Shapes;
+﻿namespace OpenCharts.Shapes;
 
 public class CirclePointShape : PointShape
 {

@@ -6,12 +6,12 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using HiOpenCVLibs;
-using HiOpenCVLibs.Series.Charts;
+using OpenCharts;
+using OpenCharts.Series.Charts;
 using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
 
-namespace WpfApp1.ViewModels
+namespace OpenCharts.ViewModels
 {
     public class MainViewModel : ObservableObject
     {

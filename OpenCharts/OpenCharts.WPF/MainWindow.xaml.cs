@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.ViewModels;
+using OpenCharts.ViewModels;
 
-namespace HiOpenCVLibs.WPF
+namespace OpenCharts.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

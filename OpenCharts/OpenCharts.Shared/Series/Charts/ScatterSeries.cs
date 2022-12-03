@@ -1,4 +1,4 @@
-﻿namespace HiOpenCVLibs.Series.Charts;
+﻿namespace OpenCharts.Series.Charts;
 
 /// <summary>
 /// Scatter

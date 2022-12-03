@@ -1,4 +1,4 @@
-﻿namespace HiOpenCVLibs;
+﻿namespace OpenCharts;
 
 /// <summary>
 /// OpenCVHelper

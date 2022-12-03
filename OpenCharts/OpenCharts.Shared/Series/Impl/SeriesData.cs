@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace HiOpenCVLibs.Series;
+namespace OpenCharts.Series;
 
 public class SeriesData<T> : ISeriesData
 {

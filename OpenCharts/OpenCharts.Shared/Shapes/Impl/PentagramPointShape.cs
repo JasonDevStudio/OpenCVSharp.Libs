@@ -1,6 +1,6 @@
 ﻿using OpenCvSharp;
 
-namespace HiOpenCVLibs.Shapes;
+namespace OpenCharts.Shapes;
 
 public class PentagramPointShape : PointShape
 {

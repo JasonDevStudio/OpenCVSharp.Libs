@@ -1,7 +1,7 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.Text;
 
-namespace HiOpenCVLibs.Series;
+namespace OpenCharts.Series;
 
 public class Axis : IAxis
 {

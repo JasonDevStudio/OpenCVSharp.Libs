@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace HiOpenCVLibs.Series;
+namespace OpenCharts.Series;
 
 public class Font : IFont
 {
