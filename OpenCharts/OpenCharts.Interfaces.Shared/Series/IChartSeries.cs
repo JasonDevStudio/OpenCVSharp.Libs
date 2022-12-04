@@ -1,6 +1,6 @@
-﻿namespace OpenCharts.Charts;
+﻿namespace OpenCharts.Series;
 
-public interface ISeries
+public interface IChartSeries
 {
     /// <summary>
     /// Gets or sets the name.
@@ -40,7 +40,8 @@ public interface ISeries
     /// <value>
     /// The data.
     /// </value>
-    ISeriesData Data { get; set; }
+
+    IChartSeriesData Data { get; set; }
 
     /// <summary>
     /// Draws the asynchronous.

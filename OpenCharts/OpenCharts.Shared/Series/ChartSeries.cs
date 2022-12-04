@@ -1,9 +1,9 @@
-﻿namespace OpenCharts.Charts;
+﻿namespace OpenCharts.Series;
 
 /// <summary>
 /// Series
 /// </summary>
-public abstract class Series : ISeries
+public abstract class ChartSeries : IChartSeries
 {
     /// <summary>
     /// Gets or sets the name.
@@ -43,7 +43,7 @@ public abstract class Series : ISeries
     /// <value>
     /// The data.
     /// </value>
-    public ISeriesData Data { get; set; }
+    public IChartSeriesData Data { get; set; }
 
     /// <summary>
     /// Draws the asynchronous.

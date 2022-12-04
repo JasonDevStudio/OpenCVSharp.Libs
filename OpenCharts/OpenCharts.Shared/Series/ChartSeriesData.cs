@@ -2,7 +2,11 @@
 
 namespace OpenCharts.Series;
 
-public class SeriesData<T> : ISeriesData
+/// <summary>
+/// ChartSeriesData
+/// </summary>
+/// <typeparam name="T">T</typeparam>
+public class ChartSeriesData<T> : IChartSeriesData
 {
     /// <summary>
     /// Gets the length.

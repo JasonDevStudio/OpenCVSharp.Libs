@@ -1,9 +1,13 @@
 ﻿using OpenCharts.Formats;
+using OpenCharts.Series;
 using OpenCvSharp;
 
 namespace OpenCharts.Charts;
 
-public class Axis : IAxis
+/// <summary>
+/// ChartAxis
+/// </summary>
+public class ChartAxis : IChartAxis
 {
     private List<OpenScale> scales = new();
     private int maxLegend = 0;

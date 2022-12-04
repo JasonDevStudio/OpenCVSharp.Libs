@@ -1,6 +1,11 @@
-﻿namespace OpenCharts.Charts;
+﻿using OpenCharts.Series;
 
-public interface IXYSeries : ISeries
+namespace OpenCharts.Charts;
+
+/// <summary>
+/// XYSeries
+/// </summary>
+public abstract class XYChartSeries : ChartSeries, IXYChartSeries
 {
     /// <summary>
     /// Gets or sets the y axis.
@@ -8,7 +13,7 @@ public interface IXYSeries : ISeries
     /// <value>
     /// The y axis.
     /// </value>
-    IAxis YAxis { get; set; }
+    public IChartAxis YAxis { get; set; }
 
     /// <summary>
     /// Gets or sets the x axis.
@@ -16,5 +21,5 @@ public interface IXYSeries : ISeries
     /// <value>
     /// The x axis.
     /// </value>
-    IAxis XAxis { get; set; }
+    public IChartAxis XAxis { get; set; }
 }

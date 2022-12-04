@@ -81,7 +81,7 @@ namespace OpenCharts.ViewModels
                 var carry = this.Color.Split(',');
                 var color = new Scalar(Convert.ToInt32(carry[0]), Convert.ToInt32(carry[1]), Convert.ToInt32(carry[2]));
                 var sarry = this.Size.Split(",");
-                var size = new SizeEx(Convert.ToInt32(sarry[0]), Convert.ToInt32(sarry[1]));
+                var size = new OpenSize(Convert.ToInt32(sarry[0]), Convert.ToInt32(sarry[1]));
                 var shapeType = ShapeTypes.Circle;
 
                 switch (this.ShapeType)
@@ -116,8 +116,8 @@ namespace OpenCharts.ViewModels
                     var g = rrdom.Next(0, 255);
                     var b = rrdom.Next(0, 255);
 
-                    var color1 = new Scalar(r,g,b);
-                    var point = new PointEx(x, y, shapeType, color1) { Value = val };
+                    var color1 = new OpenColor(r,g,b);
+                    var point = new OpenPoint(x, y, shapeType, color1) { Value = val };
                     seriesData.Add(point);
                 }
 

@@ -1,4 +1,5 @@
 ﻿using OpenCharts.Shapes;
+using OpenCharts.Shapes.OpenCV;
 
 namespace OpenCharts;
 

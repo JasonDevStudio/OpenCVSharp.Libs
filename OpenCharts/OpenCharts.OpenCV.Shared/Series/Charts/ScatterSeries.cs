@@ -1,9 +1,11 @@
-﻿namespace OpenCharts.Series.Charts;
+﻿using OpenCharts.Charts;
+
+namespace OpenCharts.Series.Charts;
 
 /// <summary>
 /// Scatter
 /// </summary>
-public class ScatterSeries : XYSeries
+public class ScatterSeries : XYChartSeries
 {
     /// <summary>
     /// Gets or sets the size.
@@ -26,7 +28,7 @@ public class ScatterSeries : XYSeries
     /// </summary>
     /// <param name="src">The source.</param>
     /// <returns>Mat</returns>
-    public override async Task<Mat> DrawAsync(Mat src)
+    public override async Task<object> DrawAsync(object src)
     {
         await Task.Factory.StartNew(() =>
         {

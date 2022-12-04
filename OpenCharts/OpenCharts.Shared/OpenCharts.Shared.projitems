@@ -9,8 +9,11 @@
     <Import_RootNamespace>OpenCharts</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\Series.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\XYSeries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\ChartAxis.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\ChartSeries.cs" />
+    <Compile Include="..\OpenCharts.Shared\Series\ChartSeriesCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\ChartSeriesData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\XYChartSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\AddIn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobalUsing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobaService.cs" />

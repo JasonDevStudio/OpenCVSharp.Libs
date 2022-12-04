@@ -9,11 +9,11 @@
     <Import_RootNamespace>OpenCharts.Interfaces</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\IAxis.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\ISeries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\ISeriesCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\ISeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Charts\IXYSeries.cs" />
+    <Compile Include="..\OpenCharts.Interfaces.Shared\Series\IChartAxis.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\IChartSeries.cs" />
+    <Compile Include="..\OpenCharts.Interfaces.Shared\Series\IChartSeriesCollection.cs" />
+    <Compile Include="..\OpenCharts.Interfaces.Shared\Series\IChartSeriesData.cs" />
+    <Compile Include="..\OpenCharts.Interfaces.Shared\Series\IXYChartSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Formats\IFont.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Formats\IFormatArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Formats\IFormating.cs" />

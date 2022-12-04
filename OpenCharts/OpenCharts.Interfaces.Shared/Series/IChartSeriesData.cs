@@ -1,10 +1,10 @@
-﻿namespace OpenCharts.Charts;
+﻿namespace OpenCharts.Series;
 
 /// <summary>
 /// 数据类型
 /// </summary>
 /// <typeparam name="T">数据类型</typeparam>
-public interface ISeriesData
+public interface IChartSeriesData
 {
     /// <summary>
     /// Gets the length.
