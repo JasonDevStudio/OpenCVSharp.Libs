@@ -26,7 +26,7 @@ public class RectangleShape : SkiaPointShape
     {
         var canvas = (SKCanvas)src;   
         this.Radius = Convert.ToInt32(size.Width);
-        this.SKFillPaint = this.GetPaint(this.FillPaint);
+        this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
         if (this.Center != point || size.Width != this.Radius || this.SkiaPath != null)

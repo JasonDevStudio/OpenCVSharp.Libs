@@ -30,7 +30,7 @@ public class PentagramPointShape : SkiaPointShape
     public void Draw1(object src, OpenPoint point, OpenSize size)
     {
         var canvas = (SKCanvas)src;
-        this.SKFillPaint = this.GetPaint(this.FillPaint);
+        this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
         if (this.Center != point || size.Width != this.Radius || !(this.SKPoints?.Any() ?? false) || this.SkiaPath != null)
@@ -56,7 +56,7 @@ public class PentagramPointShape : SkiaPointShape
             };
 
             this.SKPoints = this.Points.Select(m => new SKPoint((float)m.X, (float)m.Y)).ToList();
-            this.points = this.SKPoints.ToArray();  
+            this.points = this.SKPoints.ToArray();
         }
 
 
@@ -94,7 +94,7 @@ public class PentagramPointShape : SkiaPointShape
                                             -radius * (float)Math.Cos(angle)));
             }
 
-            this.SkiaPath.Close();  
+            this.SkiaPath.Close();
         }
 
         if (this.IsFill)

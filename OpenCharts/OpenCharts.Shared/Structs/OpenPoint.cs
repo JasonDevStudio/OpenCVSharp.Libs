@@ -106,4 +106,20 @@ public struct OpenPoint
     /// </value>
     [JsonIgnore]
     public IPointShape Shape { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this instance is highlight.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> if this instance is highlight; otherwise, <c>false</c>.
+    /// </value>
+    public bool IsHighlight { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this instance is marking.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> if this instance is marking; otherwise, <c>false</c>.
+    /// </value>
+    public bool IsMarking { get; set; }
 }
