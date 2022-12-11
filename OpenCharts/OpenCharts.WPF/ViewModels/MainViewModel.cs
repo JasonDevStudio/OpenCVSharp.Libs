@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -11,6 +12,7 @@ using OpenCharts.Series.Charts;
 using OpenCvSharp;
 using OpenCvSharp.Text;
 using OpenCvSharp.WpfExtensions;
+using SkiaSharp;
 
 namespace OpenCharts.ViewModels
 {
@@ -77,6 +79,82 @@ namespace OpenCharts.ViewModels
             {
                 var st1 = Stopwatch.StartNew();
                 var count = 0;
+                var imgInfo = new SKImageInfo(3373, 1300);
+                var bitmap = new SKBitmap(imgInfo);
+                var src = new SkiaSharp.SKCanvas(bitmap);
+                var carry = this.Color.Split(',');
+                var color = new OpenColor(Convert.ToInt32(carry[0]), Convert.ToInt32(carry[1]), Convert.ToInt32(carry[2]));
+                var sarry = this.Size.Split(",");
+                var size = new OpenSize(Convert.ToInt32(sarry[0]), Convert.ToInt32(sarry[1]));
+                var shapeType = ShapeTypes.Triangle;
+
+                switch (this.ShapeType)
+                {
+                    case 4:
+                        shapeType = ShapeTypes.Rectangle;
+                        break;
+                    case 6:
+                        shapeType = ShapeTypes.Pentagram;
+                        break;
+                    case 7:
+                        shapeType = ShapeTypes.Triangle;
+                        break;
+                    case 2:
+                    default:
+                        shapeType = ShapeTypes.Circle;
+                        break;
+                }
+
+                var seriesData = new ScatterSeriesData() { Data = new() };
+                var series = new ScatterSeries() { Data = seriesData, Size = size };
+                var xrdom = new Random(DateTime.Now.Microsecond);
+                var yrdom = new Random(DateTime.Now.Millisecond);
+                var vrdom = new Random(DateTime.Now.Millisecond);
+                var rrdom = new Random(DateTime.Now.Millisecond);
+                var grdom = new Random(DateTime.Now.Millisecond);
+                var brdom = new Random(DateTime.Now.Millisecond);
+
+                for (int i = 0; i < this.Count; i++)
+                {
+                    var x = xrdom.Next(1, 3373 * 2);
+                    var y = yrdom.Next(1, 1300 * 2);
+                    var val = vrdom.Next(1, this.Count);
+                    var r = rrdom.Next(0, 255);
+                    var g = rrdom.Next(0, 255);
+                    var b = rrdom.Next(0, 255);
+
+                    var color1 = new OpenColor(r, g, b);
+                    var point = new OpenPoint(x, y, shapeType, color1) { Value = val };
+                    seriesData.Add(point);
+                }
+
+                await series.DrawAsync(src);
+                src.Save();
+                using (SKImage img = SKImage.FromBitmap(bitmap))
+                using (SKData p = img.Encode(SKEncodedImageFormat.Jpeg, 100))
+                using (var stream = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "photoImage", "1111.png")))
+                    stream.Write(p.ToArray(), 0, p.ToArray().Length); ;
+                st1.Stop();
+                return bitmap;
+            });
+
+            var mat = await task;
+            this.Source = SkiaSharp.Views.WPF.WPFExtensions.ToWriteableBitmap(mat);
+            st.Stop();
+            System.Windows.MessageBox.Show($"times [{st.Elapsed.TotalMilliseconds}] ms.");
+        }
+
+        /// <summary>
+        /// Draws the asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public async Task DrawOpenCVAsync()
+        {
+            var st = Stopwatch.StartNew();
+            var task = await Task.Factory.StartNew(async () =>
+            {
+                var st1 = Stopwatch.StartNew();
+                var count = 0;
                 var src = new Mat(new Size(3373, 1300), MatType.CV_8UC3);
                 var carry = this.Color.Split(',');
                 var color = new Scalar(Convert.ToInt32(carry[0]), Convert.ToInt32(carry[1]), Convert.ToInt32(carry[2]));
@@ -109,14 +187,14 @@ namespace OpenCharts.ViewModels
 
                 for (int i = 0; i < this.Count; i++)
                 {
-                    var x = xrdom.Next(1, 3373*2);
-                    var y = yrdom.Next(1, 1300*2);
+                    var x = xrdom.Next(1, 3373 * 2);
+                    var y = yrdom.Next(1, 1300 * 2);
                     var val = vrdom.Next(1, this.Count);
                     var r = rrdom.Next(0, 255);
                     var g = rrdom.Next(0, 255);
                     var b = rrdom.Next(0, 255);
 
-                    var color1 = new OpenColor(r,g,b);
+                    var color1 = new OpenColor(r, g, b);
                     var point = new OpenPoint(x, y, shapeType, color1) { Value = val };
                     seriesData.Add(point);
                 }
@@ -124,7 +202,7 @@ namespace OpenCharts.ViewModels
                 await series.DrawAsync(src);
 
                 st1.Stop();
-                 Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5); 
+                Cv2.PutText(src, $"circle count [{count}] , times [{st1.Elapsed.TotalMilliseconds}] ms", new Point(100, 500), HersheyFonts.HersheySimplex, 10, new Scalar(255, 255, 255), 5);
                 return src;
             });
 

@@ -1,4 +1,5 @@
-﻿using OpenCharts.Shapes.Skia;
+﻿using System.IO;
+using OpenCharts.Shapes.Skia;
 using SkiaSharp;
 
 namespace OpenCharts.Shapes.Skia;
@@ -8,6 +9,8 @@ namespace OpenCharts.Shapes.Skia;
 /// </summary>
 public class PentagramPointShape : SkiaPointShape
 {
+    private SKPoint[] points;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="PentagramPointShape"/> class.
     /// </summary>
@@ -16,20 +19,23 @@ public class PentagramPointShape : SkiaPointShape
         this.Name = nameof(ShapeTypes.Pentagram);
         this.ShapeType = ShapeTypes.Pentagram;
     }
+
+
     /// <summary>
     /// Draws the specified src.
     /// </summary>
     /// <param name="src">The src.</param>
     /// <param name="point">The point.</param>
     /// <param name="size">The size.</param>
-    public override void Draw(object src, OpenPoint point, OpenSize size)
+    public void Draw1(object src, OpenPoint point, OpenSize size)
     {
-        this.Center = point;
-        this.Thickness = -1;
-        this.IsFill = this.Thickness == -1; 
+        var canvas = (SKCanvas)src;
+        this.SKFillPaint = this.GetPaint(this.FillPaint);
+        this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
-        if (size.Width != this.Radius && !(this.SKPoints?.Any() ?? false))
+        if (this.Center != point || size.Width != this.Radius || !(this.SKPoints?.Any() ?? false) || this.SkiaPath != null)
         {
+            this.Center = point;
             this.Radius = (int)size.Width;
             var r0 = this.Radius;
             var p0 = this.Center;
@@ -50,9 +56,50 @@ public class PentagramPointShape : SkiaPointShape
             };
 
             this.SKPoints = this.Points.Select(m => new SKPoint((float)m.X, (float)m.Y)).ToList();
+            this.points = this.SKPoints.ToArray();  
         }
 
-        var fillColor = base.GetColor(this.FillColor);
-        var offset = new SKPoint((float)this.Offset.X, (float)this.Offset.Y); 
+
+        if (this.IsFill)
+            canvas.DrawPoints(SKPointMode.Polygon, this.points, this.SKFillPaint);
+
+        canvas.DrawPoints(SKPointMode.Polygon, this.points, this.SKStrokePaint);
+    }
+
+    /// <summary>
+    /// Draws the specified source.
+    /// </summary>
+    /// <param name="src">The source.</param>
+    /// <param name="point">The point.</param>
+    /// <param name="size">The size.</param>
+    public override void Draw(object src, OpenPoint point, OpenSize size)
+    {
+        var canvas = (SKCanvas)src;
+        this.SKFillPaint = this.GetPaint(this.FillPaint);
+        this.SKFillPaint.StrokeWidth = this.FillPaint.StrokeWidth;
+        this.SKFillPaint.StrokeJoin = SKStrokeJoin.Round;
+        this.SKStrokePaint = this.GetPaint(this.StrokePaint);
+
+        if (this.Center != point && size.Width != this.Radius)
+        {
+            this.Center = point;
+            var center = new SKPoint((float)point.X, (float)point.Y);
+            var radius = 0.45f * (float)Math.Min(size.Width, size.Height);
+            this.SkiaPath = new SKPath() { FillType = SKPathFillType.Winding };
+            this.SkiaPath.MoveTo((float)this.Center.X, (float)this.Center.Y - radius);
+            for (int i = 0; i < 5; i++)
+            {
+                var angle = i * 4 * Math.PI / 5;
+                this.SkiaPath.LineTo(center + new SKPoint(radius * (float)Math.Sin(angle),
+                                            -radius * (float)Math.Cos(angle)));
+            }
+
+            this.SkiaPath.Close();  
+        }
+
+        if (this.IsFill)
+            canvas.DrawPath(this.SkiaPath, this.SKFillPaint);
+
+        canvas.DrawPath(this.SkiaPath, this.SKStrokePaint);
     }
 }

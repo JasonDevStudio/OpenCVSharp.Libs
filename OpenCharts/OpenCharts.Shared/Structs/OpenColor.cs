@@ -16,6 +16,7 @@ public struct OpenColor
         this.R = R;
         this.G = G;
         this.B = B;
+        this.Key = $"{R}_{G}_{B}";
     }
 
     /// <summary>
@@ -31,7 +32,16 @@ public struct OpenColor
         this.R = R;
         this.G = G;
         this.B = B;
+        this.Key = $"{R}_{G}_{B}_{A}";
     }
+
+    /// <summary>
+    /// Gets the key.
+    /// </summary>
+    /// <value>
+    /// The key.
+    /// </value>
+    public string Key { get; private set; }
 
     /// <summary>
     /// Gets or sets a.

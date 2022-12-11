@@ -28,8 +28,8 @@ public class CirclePointShape : OpenCVPointShape
         var center = new Point(point.X, point.Y);
         this.Radius = Convert.ToInt32(size.Width);
         var mat = (Mat)src;
-        var fillColor = this.GetColor(this.FillColor);
-        var borderColor = this.GetColor(this.BorderColor);
+        var fillColor = this.GetColor(this.FillPaint.Color);
+        var borderColor = this.GetColor(this.StrokePaint.Color); 
          
         // 绘制实心圆
         OpenCVHelper.Default.DrawCircle(mat, center, this.Radius, fillColor, this.IsFill ? -1 : this.Thickness, LineTypes.AntiAlias, this.Shift);

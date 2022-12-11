@@ -14,6 +14,14 @@ public abstract class PointShape : IPointShape
     public string Name { get; set; }
 
     /// <summary>
+    /// Gets or sets a value indicating whether this instance is fill.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> if this instance is fill; otherwise, <c>false</c>.
+    /// </value>
+    public bool IsFill { get; set; } = true;
+
+    /// <summary>
     /// Gets or sets the type of the shape.
     /// </summary>
     /// <value>
@@ -78,20 +86,20 @@ public abstract class PointShape : IPointShape
     public double EndAngle { get; set; }
 
     /// <summary>
-    /// Gets or sets the color of the RGB. 填充颜色
+    /// Gets or sets the paint.
     /// </summary>
     /// <value>
-    /// The color of the RGB.
+    /// The paint.
     /// </value>
-    public OpenColor FillColor { get; set; }
+    public OpenPaint FillPaint { get; set; } = OpenPaint.Fill;
 
     /// <summary>
-    /// Gets or sets the color of the border. 边框颜色
+    /// Gets or sets the paint.
     /// </summary>
     /// <value>
-    /// The color of the border.
+    /// The paint.
     /// </value>
-    public OpenColor BorderColor { get; set; } = new OpenColor(255, 255, 255, 30);
+    public OpenPaint StrokePaint { get; set; } = OpenPaint.Stroke;
 
     /// <summary>
     /// Gets or sets the thickness. 线条粗细
@@ -109,15 +117,7 @@ public abstract class PointShape : IPointShape
     ///   <c>true</c> if this instance is closed; otherwise, <c>false</c>.
     /// </value>
     public bool IsClosed { get; set; } = true;
-
-    /// <summary>
-    /// Gets or sets a value indicating whether this instance is filled. 是否填充
-    /// </summary>
-    /// <value>
-    ///   <c>true</c> if this instance is filled; otherwise, <c>false</c>.
-    /// </value>
-    public bool IsFill { get; set; } = true;
-
+     
     /// <summary>
     /// Gets or sets the shift.缩放参数 中心坐标和轴值中的小数位数
     /// </summary>

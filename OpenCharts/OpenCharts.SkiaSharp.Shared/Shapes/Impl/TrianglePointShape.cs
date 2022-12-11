@@ -4,17 +4,17 @@ using SkiaSharp;
 namespace OpenCharts.Shapes.Skia;
 
 /// <summary>
-/// RectangleShape
+/// TrianglePointShape
 /// </summary>
-public class RectangleShape : SkiaPointShape
+public class TrianglePointShape : SkiaPointShape
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="RectangleShape"/> class.
+    /// Initializes a new instance of the <see cref="TrianglePointShape"/> class.
     /// </summary>
-    public RectangleShape()
+    public TrianglePointShape()
     {
-        this.Name = nameof(ShapeTypes.Rectangle);
-        this.ShapeType = ShapeTypes.Rectangle;
+        this.Name = nameof(ShapeTypes.Triangle);
+        this.ShapeType = ShapeTypes.Triangle;
     }
     /// <summary>
     /// Draws the specified src.
@@ -24,20 +24,19 @@ public class RectangleShape : SkiaPointShape
     /// <param name="size">The size.</param>
     public override void Draw(object src, OpenPoint point, OpenSize size)
     {
-        var canvas = (SKCanvas)src;   
+        var canvas = (SKCanvas)src;
         this.Radius = Convert.ToInt32(size.Width);
-        this.SKFillPaint = this.GetPaint(this.FillPaint);
+        this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
         if (this.Center != point || size.Width != this.Radius || this.SkiaPath != null)
         {
-            this.SkiaPath = new SKPath();
             this.Center = new OpenPoint(point.X, point.Y);
-            var top = this.Center.Y + this.Radius;
-            var left = this.Center.X - this.Radius;
-            var right = this.Center.X + this.Radius;
-            var bottom = this.Center.Y - this.Radius;  
-            this.SkiaPath.AddRect(new SKRect((float)left, (float)top, (float)right, (float)bottom));
+            this.SkiaPath = new SKPath();
+            var top = new SKPoint((float)this.Center.X, (float)(this.Center.Y + this.Radius));
+            var left = new SKPoint((float)this.Center.X - this.Radius, (float)this.Center.Y - this.Radius);
+            var right = new SKPoint((float)this.Center.X + this.Radius, (float)this.Center.Y - this.Radius);
+            this.SkiaPath.AddPoly(new SKPoint[] { top, left, right });
         }
 
         if (this.IsFill)

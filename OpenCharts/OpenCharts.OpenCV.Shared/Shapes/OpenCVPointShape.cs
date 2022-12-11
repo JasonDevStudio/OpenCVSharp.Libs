@@ -1,4 +1,5 @@
 ﻿using OpenCvSharp;
+using SkiaSharp;
 
 namespace OpenCharts.Shapes.OpenCV;
 
@@ -10,8 +11,8 @@ public abstract class OpenCVPointShape : PointShape
     /// <summary>
     /// The colors
     /// </summary>
-    private static Dictionary<OpenColor, Scalar> Colors = new Dictionary<OpenColor, Scalar>();
-
+    private static Dictionary<string, Scalar> Colors = new Dictionary<string, Scalar>();
+     
     /// <summary>
     /// Gets or sets the cv points.
     /// </summary>
@@ -27,9 +28,9 @@ public abstract class OpenCVPointShape : PointShape
     /// <returns>Scalar</returns>
     protected Scalar GetColor(OpenColor color)
     {
-        if (!Colors.ContainsKey(color))
-            Colors[color] = new Scalar(this.FillColor.B, this.FillColor.G, this.FillColor.R, this.FillColor.A);
+        if (!Colors.ContainsKey(color.Key))
+            Colors[color.Key] = new Scalar(color.B, color.G, color.R, color.A);
 
-        return Colors[color];
-    }
+        return Colors[color.Key];
+    } 
 }

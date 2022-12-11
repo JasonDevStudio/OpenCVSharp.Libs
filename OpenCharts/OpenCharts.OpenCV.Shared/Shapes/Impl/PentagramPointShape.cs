@@ -53,7 +53,7 @@ public class PentagramPointShape : OpenCVPointShape
             this.CvPoints = this.Points.Select(m => new Point(m.X, m.Y)).ToList();
         }
 
-        var fillColor = base.GetColor(this.FillColor);
+        var fillColor = base.GetColor(this.FillPaint.Color);
         var offset = new Point(this.Offset.X, this.Offset.Y);
 
         if (this.IsFill)

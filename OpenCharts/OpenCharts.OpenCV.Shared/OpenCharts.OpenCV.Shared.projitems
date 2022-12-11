@@ -13,11 +13,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeriesData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\OpenCVPointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\CirclePointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\PentagramPointShape.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shapes\RectanglePointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\RectanglePointShape.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Series\Basic\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Shapes\Impl\" />
   </ItemGroup>
 </Project>

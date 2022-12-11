@@ -35,8 +35,28 @@ public struct OpenPoint
         this.Shape = GlobaService.GetService<IPointShape>(ShapeType);
 
         if (color != null)
-            this.Shape.FillColor = this.Color.Value;
+            this.Shape.FillPaint.Color = this.Color.Value;
     }
+
+    /// <summary>
+    /// Implements the operator =.
+    /// </summary>
+    /// <param name="p1">The p1.</param>
+    /// <param name="p2">The p2.</param>
+    /// <returns>
+    /// The result of the operator.
+    /// </returns>
+    public static bool operator == (OpenPoint p1, OpenPoint p2) => p1.X == p2.X && p1.Y == p2.Y;
+
+    /// <summary>
+    /// Implements the operator !=.
+    /// </summary>
+    /// <param name="p1">The p1.</param>
+    /// <param name="p2">The p2.</param>
+    /// <returns>
+    /// The result of the operator.
+    /// </returns>
+    public static bool operator != (OpenPoint p1, OpenPoint p2) => !(p1 == p2);
 
     /// <summary>
     /// Gets or sets the x.

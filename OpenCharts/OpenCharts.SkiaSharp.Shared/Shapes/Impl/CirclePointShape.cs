@@ -7,11 +7,14 @@ namespace OpenCharts.Shapes.Skia;
 /// CirclePointShape
 /// </summary>
 public class CirclePointShape : SkiaPointShape
-{ 
+{
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CirclePointShape"/> class.
+    /// </summary>
     public CirclePointShape()
     {
         this.Name = nameof(ShapeTypes.Circle);
-        this.ShapeType = ShapeTypes.Circle;  
+        this.ShapeType = ShapeTypes.Circle;
     }
     /// <summary>
     /// Draws the specified src.
@@ -21,7 +24,21 @@ public class CirclePointShape : SkiaPointShape
     /// <param name="size">The size.</param>
     public override void Draw(object src, OpenPoint point, OpenSize size)
     {
+        var canvas = (SKCanvas)src;
         this.Center = new OpenPoint(point.X, point.Y);
-        this.Radius = Convert.ToInt32(size.Width);  
-    } 
+        this.Radius = Convert.ToInt32(size.Width);
+        this.SKFillPaint = this.GetPaint(this.FillPaint);
+        this.SKStrokePaint = this.GetPaint(this.StrokePaint);
+
+        if (this.Center != point && size.Width != this.Radius && this.SkiaPath != null)
+        {
+            this.SkiaPath = new SKPath();
+            this.SkiaPath.AddCircle((float)point.X, (float)point.Y, this.Radius);
+        }
+
+        if (this.IsFill)
+            canvas.DrawPath(this.SkiaPath, this.SKFillPaint);
+
+        canvas.DrawPath(this.SkiaPath, this.SKStrokePaint);
+    }
 }

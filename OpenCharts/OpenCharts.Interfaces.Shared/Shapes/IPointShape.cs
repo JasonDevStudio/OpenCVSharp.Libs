@@ -6,12 +6,36 @@
 public interface IPointShape
 {
     /// <summary>
+    /// Gets or sets the paint.
+    /// </summary>
+    /// <value>
+    /// The paint.
+    /// </value>
+    OpenPaint FillPaint { get; set; }
+
+    /// <summary>
+    /// Gets or sets the paint.
+    /// </summary>
+    /// <value>
+    /// The paint.
+    /// </value>
+    OpenPaint StrokePaint { get; set; }
+
+    /// <summary>
     /// Gets or sets the name.
     /// </summary>
     /// <value>
     /// The name.
     /// </value>
     string Name { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this instance is fill.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> if this instance is fill; otherwise, <c>false</c>.
+    /// </value>
+    bool IsFill { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the shape.
@@ -28,15 +52,7 @@ public interface IPointShape
     /// The points.
     /// </value>
     IEnumerable<OpenPoint> Points { get; set; }
-
-    /// <summary>
-    /// Gets or sets the center. 圆形中心点
-    /// </summary>
-    /// <value>
-    /// The center.
-    /// </value>
-    OpenPoint Center { get; set; }
-
+     
     /// <summary>
     /// Gets or sets the radius.圆半径
     /// </summary>
@@ -78,22 +94,6 @@ public interface IPointShape
     double EndAngle { get; set; }
 
     /// <summary>
-    /// Gets or sets the color of the RGB. 填充颜色
-    /// </summary>
-    /// <value>
-    /// The color of the RGB.
-    /// </value>
-    OpenColor FillColor { get; set; }
-
-    /// <summary>
-    /// Gets or sets the color of the border. 边框颜色
-    /// </summary>
-    /// <value>
-    /// The color of the border.
-    /// </value>
-    OpenColor BorderColor { get; set; }
-     
-    /// <summary>
     /// Gets or sets the thickness. 线条粗细
     /// </summary>
     /// <value>
@@ -109,14 +109,6 @@ public interface IPointShape
     ///   <c>true</c> if this instance is closed; otherwise, <c>false</c>.
     /// </value>
     bool IsClosed { get; set; }
-
-    /// <summary>
-    /// Gets or sets a value indicating whether this instance is filled. 是否填充
-    /// </summary>
-    /// <value>
-    ///   <c>true</c> if this instance is filled; otherwise, <c>false</c>.
-    /// </value>
-    bool IsFill { get; set; }
 
     /// <summary>
     /// Gets or sets the shift.缩放参数 中心坐标和轴值中的小数位数

@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\TrianglePointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\RectanglePointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\SkiaPointShape.cs" />
   </ItemGroup>

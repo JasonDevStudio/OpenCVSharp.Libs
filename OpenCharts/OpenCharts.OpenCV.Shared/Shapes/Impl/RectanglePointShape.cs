@@ -30,8 +30,8 @@ public class RectangleShape : OpenCVPointShape
         var rect = new RotatedRect(center, new Size2f(size.Width, size.Height), (float)this.Angle);
         this.Points = rect.Points().Select(p => new OpenPoint(p.X, p.Y)).ToList();
         this.CvPoints = this.Points.Select(p => new Point(p.X, p.Y)).ToList();
-        var fillColor = base.GetColor(this.FillColor);
-        var borderColor = base.GetColor(this.BorderColor);
+        var fillColor = base.GetColor(this.FillPaint.Color);
+        var borderColor = base.GetColor(this.StrokePaint.Color);
         var offset = new Point(this.Offset.X, this.Offset.Y);
 
         if (this.IsFill)
