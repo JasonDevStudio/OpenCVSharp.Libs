@@ -1,4 +1,4 @@
-﻿namespace OpenCharts.Series;
+﻿namespace OpenCharts.Charts.Series;
 
 /// <summary>
 /// 数据类型

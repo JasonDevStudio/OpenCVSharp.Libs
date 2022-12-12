@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace OpenCharts.Series;
+﻿namespace OpenCharts.Charts.Series;
 
 /// <summary>
 /// SeriesCollection

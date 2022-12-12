@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace OpenCharts.Series;
+namespace OpenCharts.Charts.Series;
 
 /// <summary>
 /// ChartSeriesData

@@ -32,5 +32,17 @@ public abstract class OpenCVPointShape : PointShape
             Colors[color.Key] = new Scalar(color.B, color.G, color.R, color.A);
 
         return Colors[color.Key];
-    } 
+    }
+
+    /// <summary>
+    /// Determines whether the specified point is hover.
+    /// </summary>
+    /// <param name="point">The point.</param>
+    /// <returns>
+    ///   <c>true</c> if the specified point is hover; otherwise, <c>false</c>.
+    /// </returns>
+    public override bool IsHover(OpenPoint point)
+    {
+        return false;
+    }
 }

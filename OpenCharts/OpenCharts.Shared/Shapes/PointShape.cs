@@ -141,4 +141,10 @@ public abstract class PointShape : IPointShape
     /// <param name="point">The point.</param>
     /// <param name="size">The size.</param>
     public abstract void Draw(object src, OpenPoint point, OpenSize size);
+
+    /// <summary>
+    /// Determines whether the specified point is hover.
+    /// </summary>
+    /// <param name="point">The point.</param>
+    public abstract bool IsHover(OpenPoint point); 
 }

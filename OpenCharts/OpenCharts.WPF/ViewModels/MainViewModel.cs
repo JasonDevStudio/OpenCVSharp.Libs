@@ -7,10 +7,9 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using OpenCharts;
-using OpenCharts.Series.Charts;
+using OpenCharts.Charts.Series;
+using OpenCharts.Series.Charts.Scatter;
 using OpenCvSharp;
-using OpenCvSharp.Text;
 using OpenCvSharp.WpfExtensions;
 using SkiaSharp;
 

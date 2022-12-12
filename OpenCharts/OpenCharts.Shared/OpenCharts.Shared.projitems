@@ -9,13 +9,15 @@
     <Import_RootNamespace>OpenCharts</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Scatter\ScatterSeries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Scatter\ScatterSeriesData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PaintStyle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\ChartAxis.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\ChartSeries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Basic\ChartAxis.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Basic\ChartSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenPaint.cs" />
-    <Compile Include="..\OpenCharts.Shared\Series\ChartSeriesCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\ChartSeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\XYChartSeries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Basic\ChartSeriesCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Basic\ChartSeriesData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Series\Basic\XYChartSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\AddIn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobalUsing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GlobaService.cs" />
@@ -29,5 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Structs\OpenScale.cs" />
     <Compile Include="..\OpenCharts.Shared\Structs\OpenColor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Series\Basic\" />
   </ItemGroup>
 </Project>

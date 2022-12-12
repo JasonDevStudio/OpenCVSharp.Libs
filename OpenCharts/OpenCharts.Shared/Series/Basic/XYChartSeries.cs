@@ -1,6 +1,6 @@
 ﻿using OpenCharts.Series;
 
-namespace OpenCharts.Charts;
+namespace OpenCharts.Charts.Series;
 
 /// <summary>
 /// XYSeries

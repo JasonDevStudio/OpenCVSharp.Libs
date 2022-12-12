@@ -1,7 +1,7 @@
 ﻿using OpenCharts.Formats;
 using OpenCharts.Series;
 
-namespace OpenCharts.Series;
+namespace OpenCharts.Charts.Series;
 
 public interface IChartAxis
 {

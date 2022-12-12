@@ -10,8 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)OpenCVHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeriesData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Series\Charts\ScatterSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\OpenCVPointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />

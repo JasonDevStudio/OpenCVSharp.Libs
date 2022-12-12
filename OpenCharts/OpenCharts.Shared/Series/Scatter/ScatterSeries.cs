@@ -1,6 +1,7 @@
 ﻿using OpenCharts.Charts;
+using OpenCharts.Charts.Series;
 
-namespace OpenCharts.Series.Charts;
+namespace OpenCharts.Series.Charts.Scatter;
 
 /// <summary>
 /// Scatter

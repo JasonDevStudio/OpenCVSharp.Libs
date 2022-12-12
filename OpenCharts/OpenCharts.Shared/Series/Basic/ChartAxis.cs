@@ -2,7 +2,7 @@
 using OpenCharts.Series;
 using OpenCvSharp;
 
-namespace OpenCharts.Charts;
+namespace OpenCharts.Charts.Series;
 
 /// <summary>
 /// ChartAxis

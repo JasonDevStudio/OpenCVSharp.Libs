@@ -84,4 +84,13 @@ public abstract class SkiaPointShape : PointShape
 
         return Paints[paint.Key];
     }
+
+    /// <summary>
+    /// Determines whether the specified point is hover.
+    /// </summary>
+    /// <param name="point">The point.</param>
+    /// <returns>
+    ///   <c>true</c> if the specified point is hover; otherwise, <c>false</c>.
+    /// </returns>
+    public override bool IsHover(OpenPoint point) => this.SkiaPath?.Contains((float)point.X, (float)point.Y) ?? false; 
 }
