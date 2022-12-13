@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Diagnostics; 
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,8 +20,8 @@ namespace OpenCharts.ViewModels
         private BitmapSource source;
         private string color = "255,255,0";
         private string size = "25,25";
-        private int shapeType = 4;
-        private int count = 10000;
+        private int shapeType = 7;
+        private int count = 1000;
 
         /// <summary>
         /// Gets or sets the draw command.
@@ -81,11 +81,11 @@ namespace OpenCharts.ViewModels
                 var imgInfo = new SKImageInfo(3373, 1300);
                 var bitmap = new SKBitmap(imgInfo);
                 var src = new SkiaSharp.SKCanvas(bitmap);
-                var carry = this.Color.Split(',');
-                var color = new OpenColor(Convert.ToInt32(carry[0]), Convert.ToInt32(carry[1]), Convert.ToInt32(carry[2]));
+                //var carry = this.Color.Split(',');
+                //var color = new OpenColor(Convert.ToInt32(carry[0]), Convert.ToInt32(carry[1]), Convert.ToInt32(carry[2]));
                 var sarry = this.Size.Split(",");
                 var size = new OpenSize(Convert.ToInt32(sarry[0]), Convert.ToInt32(sarry[1]));
-                var shapeType = ShapeTypes.Triangle;
+                var shapeType = ShapeTypes.Pentagram;
 
                 switch (this.ShapeType)
                 {
@@ -128,16 +128,21 @@ namespace OpenCharts.ViewModels
                 }
 
                 await series.DrawAsync(src);
-                src.Save();
-                using (SKImage img = SKImage.FromBitmap(bitmap))
-                using (SKData p = img.Encode(SKEncodedImageFormat.Jpeg, 100))
-                using (var stream = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "photoImage", "1111.png")))
-                    stream.Write(p.ToArray(), 0, p.ToArray().Length); ;
+                src.Save(); 
                 st1.Stop();
                 return bitmap;
             });
 
             var mat = await task;
+
+            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "photoImage", "1111.png");
+            if (File.Exists(file))
+                File.Delete(file);
+            using (SKImage img = SKImage.FromBitmap(mat))
+            using (SKData p = img.Encode(SKEncodedImageFormat.Jpeg, 100))
+            using (var stream = File.Create(file))
+                stream.Write(p.ToArray(), 0, p.ToArray().Length);
+
             this.Source = SkiaSharp.Views.WPF.WPFExtensions.ToWriteableBitmap(mat);
             st.Stop();
             System.Windows.MessageBox.Show($"times [{st.Elapsed.TotalMilliseconds}] ms.");

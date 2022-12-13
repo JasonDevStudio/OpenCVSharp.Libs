@@ -32,7 +32,7 @@ public class TrianglePointShape : SkiaPointShape
         if (this.Center != point || size.Width != this.Radius || this.SkiaPath != null)
         {
             this.Center = new OpenPoint(point.X, point.Y);
-            this.SkiaPath = new SKPath();
+            this.SkiaPath = new SKPath() { FillType = SKPathFillType.Winding };
             var top = new SKPoint((float)this.Center.X, (float)(this.Center.Y + this.Radius));
             var left = new SKPoint((float)this.Center.X - this.Radius, (float)this.Center.Y - this.Radius);
             var right = new SKPoint((float)this.Center.X + this.Radius, (float)this.Center.Y - this.Radius);

@@ -7,7 +7,7 @@ public class OpenPaint
 {
     public readonly static OpenPaint Fill = new OpenPaint() { PaintStyle = PaintStyle.StrokeAndFill };
 
-    public readonly static OpenPaint Stroke = new OpenPaint() { Color = new OpenColor(255, 255, 255, 30), PaintStyle = PaintStyle.Stroke, StrokeWidth = 5 };
+    public readonly static OpenPaint Stroke = new OpenPaint() { Color = new OpenColor(40, 40, 40, 100), PaintStyle = PaintStyle.Stroke, StrokeWidth = 5 };
 
     /// <summary>
     /// Gets the key.

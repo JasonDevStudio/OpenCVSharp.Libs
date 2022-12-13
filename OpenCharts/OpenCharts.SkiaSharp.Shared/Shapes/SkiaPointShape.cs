@@ -76,11 +76,19 @@ public abstract class SkiaPointShape : PointShape
             paint.Color = color.Value;
 
         if (!Paints.ContainsKey(paint.Key))
-            Paints[paint.Key] = new SKPaint
+        {
+            var skpaint = new SKPaint
             {
                 Color = GetColor(paint.Color),
                 Style = (SKPaintStyle)paint.PaintStyle,
+                IsAntialias = true,
             };
+
+            if (skpaint.Style == SKPaintStyle.Stroke)
+                skpaint.StrokeJoin = SKStrokeJoin.Round;
+
+            Paints[paint.Key] = skpaint;
+        }
 
         return Paints[paint.Key];
     }
@@ -92,5 +100,5 @@ public abstract class SkiaPointShape : PointShape
     /// <returns>
     ///   <c>true</c> if the specified point is hover; otherwise, <c>false</c>.
     /// </returns>
-    public override bool IsHover(OpenPoint point) => this.SkiaPath?.Contains((float)point.X, (float)point.Y) ?? false; 
+    public override bool IsHover(OpenPoint point) => this.SkiaPath?.Contains((float)point.X, (float)point.Y) ?? false;
 }
