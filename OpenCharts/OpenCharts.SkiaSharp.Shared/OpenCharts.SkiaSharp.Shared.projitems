@@ -9,6 +9,7 @@
     <Import_RootNamespace>OpenCharts.SkiaSharp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Series\XYChartAxis.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\CirclePointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\PentagramPointShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shapes\Impl\TrianglePointShape.cs" />

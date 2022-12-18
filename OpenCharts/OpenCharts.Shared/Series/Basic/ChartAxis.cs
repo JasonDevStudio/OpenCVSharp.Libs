@@ -7,7 +7,7 @@ namespace OpenCharts.Charts.Series;
 /// <summary>
 /// ChartAxis
 /// </summary>
-public class ChartAxis : IChartAxis
+public abstract class ChartAxis : IChartAxis
 {
     private List<OpenScale> scales = new();
     private int maxLegend = 0;
@@ -134,16 +134,16 @@ public class ChartAxis : IChartAxis
     public void Draw(object src)
     {
         if (this.IsVertical)
-            this.DrawVerticalAxis(src);
+            this.OnDrawVerticalAxis(src);
         else
-            this.DrawHorizontalAxis(src);
+            this.OnDrawHorizontalAxis(src);
     }
 
     /// <summary>
     /// Adds the specified item.
     /// </summary>
     /// <param name="item">The item.</param>
-    public void Add(OpenScale item)
+    public virtual void Add(OpenScale item)
     {
         item.FormatScale = $"{this.Formating.Format(item.Value)}";
         this.Scales.Add(item);
@@ -153,7 +153,7 @@ public class ChartAxis : IChartAxis
     /// Adds the specified items.
     /// </summary>
     /// <param name="items">The items.</param>
-    public void Add(List<OpenScale> items)
+    public virtual void Add(List<OpenScale> items)
     {
         for (int i = 0; i < items.Count; i++)
         {
@@ -167,42 +167,29 @@ public class ChartAxis : IChartAxis
     /// Updates the specified item.
     /// </summary>
     /// <param name="item">The item.</param>
-    public void Update(OpenScale item) => item.FormatScale = $"{this.Formating.Format(item.Value)}";
+    public virtual void Update(OpenScale item) => item.FormatScale = $"{this.Formating.Format(item.Value)}";
 
     /// <summary>
     /// Removes the specified item.
     /// </summary>
     /// <param name="item">The item.</param>
-    public void Remove(OpenScale item) => this.Scales.Remove(item);
+    public virtual void Remove(OpenScale item) => this.Scales.Remove(item);
 
     /// <summary>
     /// Draws the vertical axis.
     /// </summary>
-    private void DrawVerticalAxis(object src)
-    {
-        var mat = (Mat)src;
-        var startY = this.Start.Y + this.Margin.bottom;
-        var startX = this.Start.X + this.Margin.left;
-        var fcolor = new Scalar(this.Font.Color.B, this.Font.Color.G, this.Font.Color.R, this.Font.Color.A);
-
-        foreach (var scale in this.Scales)
-        {
-            OpenCVHelper.Default.DrawText(mat, scale.FormatScale, new Point(startX, startY), this.Font.Size, fcolor, thickness: this.Font.Bold ? 2 : 1);
-        }
-    }
+    protected abstract void OnDrawVerticalAxis(object src);
 
     /// <summary>
     /// Draws the horizontal axis.
     /// </summary>
-    private void DrawHorizontalAxis(object src)
-    {
-    }
+    protected abstract void OnDrawHorizontalAxis(object src);
 
     /// <summary>
     /// Formats this instance.
     /// </summary>
     /// <returns>List{object}</returns>
-    private void Format()
+    protected void Format()
     {
         for (int i = 0; i < this.Scales.Count; i++)
         {
