@@ -70,27 +70,33 @@ public abstract class SkiaPointShape : PointShape
     /// </summary>
     /// <param name="color">The color.</param>
     /// <returns>SKPaint</returns>
-    protected SKPaint GetPaint(OpenPaint paint, OpenColor? color = null)
+    protected SKPaint GetPaint(OpenPaint openPaint, OpenColor? color = null)
     {
-        if (color != null)
-            paint.Color = color.Value;
+        SKPaint paint = null;
 
-        if (!Paints.ContainsKey(paint.Key))
+        if (color != null)
+            openPaint.Color = color.Value;
+
+        if (!Paints.ContainsKey(openPaint.Key))
         {
-            var skpaint = new SKPaint
+            paint = new SKPaint
             {
-                Color = GetColor(paint.Color),
-                Style = (SKPaintStyle)paint.PaintStyle,
-                IsAntialias = true,
+                Style = (SKPaintStyle)openPaint.PaintStyle,
+                Color= GetColor(openPaint.Color),
+                IsAntialias = true
             };
 
-            if (skpaint.Style == SKPaintStyle.Stroke)
-                skpaint.StrokeJoin = SKStrokeJoin.Round;
+            if (paint.Style == SKPaintStyle.Stroke)
+                paint.StrokeJoin = SKStrokeJoin.Round;
 
-            Paints[paint.Key] = skpaint;
+            Paints[openPaint.Key] = paint;
         }
-
-        return Paints[paint.Key];
+        else
+        {
+            paint = Paints[openPaint.Key];
+        }
+         
+        return paint;
     }
 
     /// <summary>

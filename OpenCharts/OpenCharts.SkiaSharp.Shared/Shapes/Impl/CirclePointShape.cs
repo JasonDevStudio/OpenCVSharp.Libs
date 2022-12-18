@@ -30,7 +30,7 @@ public class CirclePointShape : SkiaPointShape
         this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
-        if (this.Center != point && size.Width != this.Radius && this.SkiaPath != null)
+        if (this.Center != point || size.Width != this.Radius || this.SkiaPath == null)
         {
             this.SkiaPath = new SKPath();
             this.SkiaPath.AddCircle((float)point.X, (float)point.Y, this.Radius);

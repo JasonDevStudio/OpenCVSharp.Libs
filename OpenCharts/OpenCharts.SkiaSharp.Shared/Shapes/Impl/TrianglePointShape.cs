@@ -29,7 +29,7 @@ public class TrianglePointShape : SkiaPointShape
         this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
-        if (this.Center != point || size.Width != this.Radius || this.SkiaPath != null)
+        if (this.Center != point || size.Width != this.Radius || this.SkiaPath == null)
         {
             this.Center = new OpenPoint(point.X, point.Y);
             this.SkiaPath = new SKPath() { FillType = SKPathFillType.Winding };
@@ -39,8 +39,8 @@ public class TrianglePointShape : SkiaPointShape
             this.SkiaPath.AddPoly(new SKPoint[] { top, left, right });
         }
 
-        if (this.IsFill)
-            canvas.DrawPath(this.SkiaPath, this.SKFillPaint);
+        if (this.IsFill) 
+            canvas.DrawPath(this.SkiaPath, this.SKFillPaint); 
 
         canvas.DrawPath(this.SkiaPath, this.SKStrokePaint);
     }

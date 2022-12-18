@@ -27,16 +27,17 @@ public class PentagramPointShape : SkiaPointShape
     /// <param name="src">The src.</param>
     /// <param name="point">The point.</param>
     /// <param name="size">The size.</param>
-    public void Draw1(object src, OpenPoint point, OpenSize size)
+    public override void Draw(object src, OpenPoint point, OpenSize size)
     {
         var canvas = (SKCanvas)src;
         this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
-        if (this.Center != point || size.Width != this.Radius || !(this.SKPoints?.Any() ?? false) || this.SkiaPath != null)
+        if (this.Center != point || size.Width != this.Radius || this.SkiaPath == null)
         {
             this.Center = point;
             this.Radius = (int)size.Width;
+            this.SkiaPath = new SKPath() { FillType = SKPathFillType.Winding };
             var r0 = this.Radius;
             var p0 = this.Center;
             int r1 = (int)(r0 * Math.Sin(Math.PI / 10) / Math.Sin(Math.PI * 7 / 10));
@@ -57,13 +58,14 @@ public class PentagramPointShape : SkiaPointShape
 
             this.SKPoints = this.Points.Select(m => new SKPoint((float)m.X, (float)m.Y)).ToList();
             this.points = this.SKPoints.ToArray();
+            this.SkiaPath.AddPoly(this.points);
         }
 
 
         if (this.IsFill)
-            canvas.DrawPoints(SKPointMode.Polygon, this.points, this.SKFillPaint);
+            canvas.DrawPath(this.SkiaPath, this.SKFillPaint);
 
-        canvas.DrawPoints(SKPointMode.Polygon, this.points, this.SKStrokePaint);
+        canvas.DrawPath(this.SkiaPath, this.SKStrokePaint);
     }
 
     /// <summary>
@@ -72,12 +74,10 @@ public class PentagramPointShape : SkiaPointShape
     /// <param name="src">The source.</param>
     /// <param name="point">The point.</param>
     /// <param name="size">The size.</param>
-    public override void Draw(object src, OpenPoint point, OpenSize size)
+    public void Draw2(object src, OpenPoint point, OpenSize size)
     {
         var canvas = (SKCanvas)src;
-        this.SKFillPaint = this.GetPaint(this.FillPaint);
-        this.SKFillPaint.StrokeWidth = this.FillPaint.StrokeWidth;
-        this.SKFillPaint.StrokeJoin = SKStrokeJoin.Round;
+        this.SKFillPaint = this.GetPaint(this.FillPaint, point.Color);
         this.SKStrokePaint = this.GetPaint(this.StrokePaint);
 
         if (this.Center != point && size.Width != this.Radius)

@@ -16,6 +16,7 @@ public struct OpenColor
         this.R = R;
         this.G = G;
         this.B = B;
+        this.A = 255;
         this.Key = $"{R}_{G}_{B}";
     }
 
