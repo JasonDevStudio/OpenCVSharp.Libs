@@ -1,25 +1,53 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>		
+	</PropertyGroup>
+	<PropertyGroup>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+		<!-- 只有在 GitHub 的 Action 构建才能使用源代码链接 -->
+		<!-- 源代码链接需要使用 commit 号，而在 GitHub 的 Action 构建的 commit 才是对的 -->
+		<!-- 本地构建，也许没有记得 commit 就构建，此时的 nuget 包的源代码是不对的，上传上去会让调试诡异 -->
+		<!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-  <Import Project="..\OpenCharts.OpenCV.Shared\OpenCharts.OpenCV.Shared.projitems" Label="Shared" />
-
-  <Import Project="..\OpenCharts.Interfaces.Shared\OpenCharts.Interfaces.Shared.projitems" Label="Shared" />
-
-  <Import Project="..\OpenCharts.Shared\OpenCharts.Shared.projitems" Label="Shared" />
-
-  <Import Project="..\OpenCharts.SkiaSharp.Shared\OpenCharts.SkiaSharp.Shared.projitems" Label="Shared" />
-
-  <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.5.0" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-    <PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
-    <PackageReference Include="SkiaSharp" Version="2.88.3" />
-    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
-  </ItemGroup>
-
+		<!-- 本地等不需要创建符号文件 -->
+		<!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<RepositoryUrl>https://github.com/JasonDevStudio/OpenCharts.git</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/JasonDevStudio/OpenCharts</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageOutputPath>\\192.168.10.2\04_源码存放\06_Nuget</PackageOutputPath>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	</PropertyGroup> 
+	<Import Project="..\OpenCharts.OpenCV.Shared\OpenCharts.OpenCV.Shared.projitems" Label="Shared" />
+	<Import Project="..\OpenCharts.Interfaces.Shared\OpenCharts.Interfaces.Shared.projitems" Label="Shared" />
+	<Import Project="..\OpenCharts.Shared\OpenCharts.Shared.projitems" Label="Shared" />
+	<Import Project="..\OpenCharts.SkiaSharp.Shared\OpenCharts.SkiaSharp.Shared.projitems" Label="Shared" /> 
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="6.5.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+		<PackageReference Include="Microsoft.SourceLink.Common" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
+		<PackageReference Include="SkiaSharp" Version="2.88.3" />
+		<PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+	</ItemGroup>
 </Project>
